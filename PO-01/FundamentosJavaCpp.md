@@ -8,6 +8,454 @@ A diferença entre uma **classe** e um objeto é que uma classe é uma estrutura
 
 Por exemplo, uma classe "Carro" pode definir as propriedades de cor, modelo e ano do carro, bem como os métodos para acelerar e freiar. Um objeto "Carro" específico criado a partir dessa classe teria valores específicos atribuídos a cada uma dessas propriedades, como "branco", "sedan", "2016" e seu atributo de velocidade que pode ser modificado pelo seus métodos.  Cada instância de "Carro" poderá ter valores específicos e seria identificada com suas respectivas identidades exclusivas.
 
+### Exemplos:
+
+<details>
+<summary> Classe Carro</summary>
+
+**Java**
+```java
+public class Carro {
+    private String marca;
+    private String modelo;
+    private int ano;
+    private int velocidade;
+
+    public Carro(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        this.velocidade = 0;
+    }
+
+    public void acelerar(int incremento) {
+        velocidade += incremento;
+    }
+
+    public void freiar(int decremento) {
+        velocidade -= decremento;
+        if (velocidade < 0) {
+            velocidade = 0;
+        }
+    }
+}
+```
+
+```java
+public static void main(String[] args) {
+    Carro carro1 = new Carro("Marea", "Prata", 1998);
+
+    // Acessando os atributos do carro
+    System.out.println("Marca: " + carro1.getMarca());
+    System.out.println("Cor: " + carro1.getCor());
+    System.out.println("Ano: " + carro1.getAno());
+
+    // Realizando ações com o carro
+    carro1.acelerar(100);
+    carro1.freiar(50);
+    System.out.println("Velocidade atual: " + carro1.getVelocidade());
+}
+```
+
+**C++** 
+```cpp
+class Carro {
+private:
+    std::string marca;
+    std::string modelo;
+    int ano;
+    int velocidade;
+
+public:
+    Carro(std::string marca, std::string modelo, int ano) {
+        this->marca = marca;
+        this->modelo = modelo;
+        this->ano = ano;
+        this->velocidade = 0;
+    }
+
+    void acelerar(int incremento) {
+        velocidade += incremento;
+    }
+
+    void freiar(int decremento) {
+        velocidade -= decremento;
+        if (velocidade < 0) {
+            velocidade = 0;
+        }
+    }
+};
+```
+
+```C++
+int main() {
+    Carro carro1("Marea", "Prata", 1998);
+
+    std::cout << "Marca: " << carro1.getMarca() << std::endl;
+    std::cout << "Cor: " << carro1.getCor() << std::endl;
+    std::cout << "Ano: " << carro1.getAno() << std::endl;
+
+    carro1.acelerar(100);
+    carro1.freiar(50);
+    std::cout << "Velocidade atual: " << carro1.getVelocidade() << std::endl;
+
+    return 0;
+}
+```
+
+</details>
+
+<details>
+<summary> Classe Pessoa</summary>
+
+ **Java**
+```java
+public class Pessoa {
+    private String nome;
+    private int idade;
+
+    public Pessoa(String nome, int idade) {
+        this.nome = nome;
+        this.idade = idade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getIdade() {
+        return idade;
+    }
+}
+```
+
+```java
+public static void main(String[] args) {
+    Pessoa pessoa1 = new Pessoa("John Smith", 25);
+
+    System.out.println("Nome: " + pessoa1.getNome());
+    System.out.println("Idade: " + pessoa1.getIdade());
+}
+```
+
+**C++**
+``` C++
+class Pessoa {
+private:
+    std::string nome;
+    int idade;
+
+public:
+    Pessoa(std::string nome, int idade) {
+        this->nome = nome;
+        this->idade = idade;
+    }
+
+    std::string getNome() {
+        return nome;
+    }
+
+    int getIdade() {
+        return idade;
+    }
+};
+```
+
+```C++
+int main() {
+    Pessoa pessoa1("John Smith", 25);
+
+    std::cout << "Nome: " << pessoa1.getNome() << std::endl;
+    std::cout << "Idade: " << pessoa1.getIdade() << std::endl;
+
+    return 0;
+}
+```
+
+</details>
+
+<details>
+<summary> Classe ContaBancaria</summary>
+
+ **Java**
+```java
+public class ContaBancaria {
+    private String titular;
+    private double saldo;
+    private String agencia;
+    private String tipoConta;
+    private String numeroConta;
+
+    public ContaBancaria(String titular, String agencia, String tipoConta, String numeroConta) {
+        this.titular = titular;
+        this.agencia = agencia;
+        this.tipoConta = tipoConta;
+        this.numeroConta = numeroConta;
+        this.saldo = 0.0;
+    }
+
+    public String getTitular() {
+        return titular;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public String getTipoConta() {
+        return tipoConta;
+    }
+
+    public String getNumeroConta() {
+        return numeroConta;
+    }
+
+    public void depositar(double valor) {
+        saldo += valor;
+    }
+
+    public void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+        } else {
+            System.out.println("Saldo insuficiente.");
+        }
+    }
+}
+```
+
+
+```java 
+    public static void main(String[] args) {
+        ContaBancaria conta1 = new ContaBancaria("John Smith", "1234", "Corrente", "1001");
+
+        System.out.println("Titular: " + conta1.getTitular());
+        System.out.println("Agência: " + conta1.getAgencia());
+        System.out.println("Tipo de Conta: " + conta1.getTipoConta());
+        System.out.println("Número da Conta: " + conta1.getNumeroConta());
+
+        conta1.depositar(1000);
+        conta1.sacar(500);
+        System.out.println("Saldo: " + conta1.getSaldo());
+    }
+```
+
+**C++**
+``` C++
+
+
+class ContaBancaria {
+private:
+    std::string titular;
+    double saldo;
+    std::string agencia;
+    std::string tipoConta;
+    std::string numeroConta;
+
+public:
+    ContaBancaria(std::string titular, std::string agencia, std::string tipoConta, std::string numeroConta) {
+        this->titular = titular;
+        this->agencia = agencia;
+        this->tipoConta = tipoConta;
+        this->numeroConta = numeroConta;
+        this->saldo = 0.0;
+    }
+
+    std::string getTitular() {
+        return titular;
+    }
+
+    double getSaldo() {
+        return saldo;
+    }
+
+    std::string getAgencia() {
+        return agencia;
+    }
+
+    std::string getTipoConta() {
+        return tipoConta;
+    }
+
+    std::string getNumeroConta() {
+        return numeroConta;
+    }
+
+    void depositar(double valor) {
+        saldo += valor;
+    }
+
+    void sacar(double valor) {
+        if (valor <= saldo) {
+            saldo -= valor;
+        } else {
+            std::cout << "Saldo insuficiente." << std::endl;
+        }
+    }
+};
+```
+
+```C++ 
+int main() {
+    ContaBancaria conta1("John Smith", "1234", "Corrente", "1001");
+
+    std::cout << "Titular: " << conta1.getTitular() << std::endl;
+    std::cout << "Agência: " << conta1.getAgencia() << std::endl;
+    std::cout << "Tipo de Conta: " << conta1.getTipoConta() << std::endl;
+    std::cout << "Número da Conta: " << conta1.getNumeroConta() << std::endl;
+
+    conta1.depositar(1000); 
+    conta1.sacar(500);
+    std::cout << "Saldo: " << conta1.getSaldo() << std::endl;
+
+    return 0;
+}
+```
+
+</details>
+
+</details>
+
+<details>
+<summary> Classe Venda</summary>
+
+ **Java**
+```java
+public class Venda {
+    private String cliente;
+    private List<String> produtos;
+
+    public Venda(String cliente) {
+        this.cliente = cliente;
+        this.produtos = new ArrayList<>();
+    }
+
+    public String getCliente() {
+        return cliente;
+    }
+
+    public List<String> getProdutos() {
+        return produtos;
+    }
+
+    public void adicionarProduto(String produto) {
+        produtos.add(produto);
+    }
+
+    public void removerProduto(String produto) {
+        produtos.remove(produto);
+    }
+
+    public void imprimirVenda() {
+        System.out.println("Cliente: " + cliente);
+        System.out.println("Produtos: ");
+        for (String produto : produtos) {
+            System.out.println("- " + produto);
+        }
+    }
+}
+```
+
+```java
+public static void main(String[] args) {
+    Venda venda1 = new Venda("Cliente A");
+
+    venda1.adicionarProduto("Produto 1");
+    venda1.adicionarProduto("Produto 2");
+    venda1.adicionarProduto("Produto 3");
+
+    venda1.imprimirVenda();
+
+    venda1.removerProduto("Produto 2");
+
+    venda1.imprimirVenda();
+}
+```
+
+
+**C++**
+```cpp
+class Venda {
+private:
+    std::string cliente;
+    std::vector<std::string> produtos;
+
+public:
+    Venda(std::string cliente) {
+        this->cliente = cliente;
+    }
+
+    std::string getCliente() {
+        return cliente;
+    }
+
+    std::vector<std::string> getProdutos() {
+        return produtos;
+    }
+
+    void adicionarProduto(std::string produto) {
+        produtos.push_back(produto);
+    }
+
+    void removerProduto(std::string produto) {
+        for (auto it = produtos.begin(); it != produtos.end(); ++it) {
+            if (*it == produto) {
+                produtos.erase(it);
+                break;
+            }
+        }
+    }
+
+    void imprimirVenda() {
+        std::cout << "Cliente: " << cliente << std::endl;
+        std::cout << "Produtos: " << std::endl;
+        for (const auto& produto : produtos) {
+            std::cout << "- " << produto << std::endl;
+        }
+    }
+};
+```
+
+```cpp
+int main() {
+    Venda venda1("Cliente A");
+
+    venda1.adicionarProduto("Produto 1");
+    venda1.adicionarProduto("Produto 2");
+    venda1.adicionarProduto("Produto 3");
+
+    venda1.imprimirVenda();
+
+    venda1.removerProduto("Produto 2");
+
+    venda1.imprimirVenda();
+
+    return 0;
+}
+```
+
+</details>
+</details>
+
+<details>
+<summary> Classe xxxx</summary>
+
+ **Java**
+```java
+
+```
+
+**C++**
+``` C++
+
+```
+</details>
+
+
 
 ##  2. Como você declara uma variável em Java e quais são os tipos de dados primitivos mais comuns? Faça um paralelo entre isso e a mesma coisa na linguagem C++.
 
