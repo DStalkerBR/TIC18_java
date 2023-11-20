@@ -14,6 +14,7 @@ Por exemplo, uma classe "Carro" pode definir as propriedades de cor, modelo e an
 <summary> Classe Carro</summary>
 
 **Java**
+- Criação da Classe Carro
 ```java
 public class Carro {
     private String marca;
@@ -41,6 +42,7 @@ public class Carro {
 }
 ```
 
+- Criação do Objeto Carro
 ```java
 public static void main(String[] args) {
     Carro carro1 = new Carro("Marea", "Prata", 1998);
@@ -58,6 +60,7 @@ public static void main(String[] args) {
 ```
 
 **C++** 
+- Criação da Classe Carro
 ```cpp
 class Carro {
 private:
@@ -87,6 +90,7 @@ public:
 };
 ```
 
+- Criação do Objeto Carro
 ```C++
 int main() {
     Carro carro1("Marea", "Prata", 1998);
@@ -109,6 +113,7 @@ int main() {
 <summary> Classe Pessoa</summary>
 
  **Java**
+ - Criação da Classe Pessoa
 ```java
 public class Pessoa {
     private String nome;
@@ -129,6 +134,7 @@ public class Pessoa {
 }
 ```
 
+- Criação do Objeto Pessoa
 ```java
 public static void main(String[] args) {
     Pessoa pessoa1 = new Pessoa("John Smith", 25);
@@ -139,6 +145,7 @@ public static void main(String[] args) {
 ```
 
 **C++**
+- Criação da Classe Pessoa
 ``` C++
 class Pessoa {
 private:
@@ -161,6 +168,7 @@ public:
 };
 ```
 
+- Criação do Objeto Pessoa
 ```C++
 int main() {
     Pessoa pessoa1("John Smith", 25);
@@ -178,6 +186,7 @@ int main() {
 <summary> Classe ContaBancaria</summary>
 
  **Java**
+- Criação da Classe ContaBancaria
 ```java
 public class ContaBancaria {
     private String titular;
@@ -228,7 +237,7 @@ public class ContaBancaria {
 }
 ```
 
-
+ - Criação do Objeto ContaBancaria
 ```java 
     public static void main(String[] args) {
         ContaBancaria conta1 = new ContaBancaria("John Smith", "1234", "Corrente", "1001");
@@ -245,9 +254,8 @@ public class ContaBancaria {
 ```
 
 **C++**
+- Criação da Classe ContaBancaria
 ``` C++
-
-
 class ContaBancaria {
 private:
     std::string titular;
@@ -299,6 +307,7 @@ public:
 };
 ```
 
+- Criação do Objeto ContaBancaria
 ```C++ 
 int main() {
     ContaBancaria conta1("John Smith", "1234", "Corrente", "1001");
@@ -318,12 +327,12 @@ int main() {
 
 </details>
 
-</details>
-
 <details>
 <summary> Classe Venda</summary>
 
+
  **Java**
+- Criação da Classe Venda
 ```java
 public class Venda {
     private String cliente;
@@ -360,6 +369,7 @@ public class Venda {
 }
 ```
 
+- Criação do Objeto Venda
 ```java
 public static void main(String[] args) {
     Venda venda1 = new Venda("Cliente A");
@@ -376,8 +386,8 @@ public static void main(String[] args) {
 }
 ```
 
-
 **C++**
+- Criação da Classe Venda
 ```cpp
 class Venda {
 private:
@@ -420,6 +430,7 @@ public:
 };
 ```
 
+- Criação do Objeto Venda
 ```cpp
 int main() {
     Venda venda1("Cliente A");
@@ -437,21 +448,154 @@ int main() {
     return 0;
 }
 ```
-
-</details>
 </details>
 
 <details>
-<summary> Classe xxxx</summary>
+<summary> Classe Filme</summary>
 
  **Java**
+- Criação da Classe Filme
 ```java
+public class Filme {
+    private String titulo;
+    private int ano;
+    private String diretor;
+    private String sinopse;
+    private String genero;
+    private ArrayList<String> atores;
 
+    public Filme(String titulo, int ano, String diretor, String sinopse, String genero, List<String> atores) {
+        this.titulo = titulo;
+        this.ano = ano;
+        this.diretor = diretor;
+        this.sinopse = sinopse;
+        this.genero = genero;
+        this.atores = atores;
+    }
+
+    public void adicionarAtor(String ator) {
+        atores.add(ator);
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public String getDiretor() {
+        return diretor;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public List<String> getAtores() {
+        return atores;
+    }
+}
+```
+
+- Criação do Objeto Filme
+```java
+public static void main(String[] args) {  
+    Filme filme = new Filme("Inception", 2010, "Christopher Nolan", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.", "Action, Adventure, Sci-Fi", atores);
+
+    List<String> atores = new ArrayList<>();
+    atores.add("Leonardo DiCaprio");
+    atores.add("Tom Hardy");
+    atores.add("Joseph Gordon-Levitt");
+
+    filme.adicionarAtor("Tom Hardy");
+    System.out.println(filme.getTitulo());
+    System.out.println(filme.getAno());
+    System.out.println(filme.getDiretor());
+    System.out.println(filme.getSinopse());
+    System.out.println(filme.getGenero());
+    System.out.println(filme.getAtores());
+
+    
+    
+}
 ```
 
 **C++**
+- Criação da Classe Filme
 ``` C++
+class Filme {
+private:
+    std::string titulo;
+    int ano;
+    std::string diretor;
+    std::string sinopse;
+    std::string genero;
+    std::vector<std::string> atores;
 
+public:
+    Filme(std::string titulo, int ano, std::string diretor, std::string sinopse, std::string genero, std::vector<std::string> atores) {
+        this->titulo = titulo;
+        this->ano = ano;
+        this->diretor = diretor;
+        this->sinopse = sinopse;
+        this->genero = genero;
+        this->atores = atores;
+    }
+
+    void adicionarAtor(const std::string& ator) {
+        atores.push_back(ator);
+    }
+
+    std::string getTitulo() {
+        return titulo;
+    }
+
+    int getAno() {
+        return ano;
+    }
+
+    std::string getDiretor() {
+        return diretor;
+    }
+
+    std::string getSinopse() {
+        return sinopse;
+    }
+
+    std::string getGenero() {
+        return genero;
+    }
+
+    std::vector<std::string> getAtores() {
+        return atores;
+    }
+};
+```
+
+- Criação do Objeto Filme
+```cpp
+int main() {
+   Filme filme("Inception", 2010, "Christopher Nolan", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.", "Action, Adventure, Sci-Fi", atores);
+
+    std::vector<std::string> atores = {"Leonardo DiCaprio", "Tom Hardy", "Joseph Gordon-Levitt"}; 
+    filme.adicionarAtor("Tom Hardy");
+    std::cout << filme.getTitulo() << std::endl;
+    std::cout << filme.getAno() << std::endl;
+    std::cout << filme.getDiretor() << std::endl;
+    std::cout << filme.getSinopse() << std::endl;
+    std::cout << filme.getGenero() << std::endl;
+    for (const std::string& ator : filme.getAtores()) {
+        std::cout << ator << std::endl;
+    }
+
+    return 0;
+}
 ```
 </details>
 
@@ -503,6 +647,266 @@ class MinhaSubclasse: public MinhaClasse {
 | Não há suporte para herança múltipla; uma classe não pode herdar de mais de uma classe. Em vez disso, uma classe pode "implementar" várias interfaces. | Suporta herança múltipla; uma classe pode herdar de várias classes. A herança múltipla permite que uma classe herde membros de várias classes diferentes. |
 
 No geral, tanto Java quanto C++ suportam herança de classe, mas o processo de implementação difere ligeiramente entre as linguagens.
+
+### Exemplos
+
+<details>
+<summary> Herança em Java e C++ </summary>
+
+A classe derivada adiciona um método específico, `turbo()`, adicionando uma extensão à funcionalidade da classe base.
+
+**Java**
+```java
+class CarroEsportivo extends Carro {
+    public CarroEsportivo(String modelo) {
+        super(modelo);
+    }
+
+    public void turbo() {
+        System.out.println("Ativando modo turbo no carro esportivo " + getModelo());
+    }
+}
+```
+
+**C++** 
+```cpp
+class CarroEsportivo : public Carro {
+public:
+    CarroEsportivo(std::string modelo) : Carro(modelo) {}
+
+    void turbo() {
+        std::cout << "Ativando modo turbo no carro esportivo " << getModelo() << std::endl;
+    }
+};
+```
+
+</details>
+
+<details>
+<summary> Herança e Proteção de acesso</summary>
+
+A classe derivada `ContaPoupanca` utiliza métodos da classe base para acessar e modificar o saldo da classe base.
+
+**Java**
+```java
+public class ContaPoupanca extends ContaBancaria {
+    protected double taxaRendimento;
+
+    public ContaPoupanca(String titular, double saldo, String agencia, String numeroConta, double taxaRendimento) {
+        super(titular, saldo, agencia, "Poupança", numeroConta);
+        this.taxaRendimento = taxaRendimento;
+    }
+
+    protected void aplicarRendimento() {
+        double saldoAtual = getSaldo(); // Saldo no ancestral é private
+        saldoAtual += saldoAtual * taxaRendimento;
+        setSaldo(saldoAtual);  
+        System.out.println("Rendimento aplicado. Novo saldo: " + getSaldo());
+    }
+}
+```
+
+**C++** 
+```cpp
+class ContaPoupanca : public ContaBancaria {
+private:
+    double taxaRendimento;
+
+public:
+    ContaPoupanca(std::string titular, double saldo, std::string agencia, std::string numeroConta, double taxaRendimento)
+        : ContaBancaria(titular, saldo, agencia, "Poupança", numeroConta), taxaRendimento(taxaRendimento) {}
+
+    void aplicarRendimento() {
+        double saldoAtual = getSaldo();  // Saldo no ancestral é private
+        saldoAtual += saldoAtual * taxaRendimento;
+        depositar(saldoAtual); 
+        std::cout << "Rendimento aplicado. Novo saldo: " << getSaldo() << std::endl;
+    }
+};
+```
+
+</details>
+
+<details>
+<summary> Herança com novo atributo e método</summary>
+
+A classe derivada `DocumentoTexto` adiciona um método específico, `editar()`, extendendo a funcionalidade da classe base `Documento`. E utiliza herança para acessar e modificar o atributo protegido titulo da classe base.
+
+**Java**
+```java
+public class Documento {
+    protected String titulo;
+
+    public Documento(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void abrir() {
+        System.out.println("Abrindo o documento: " + titulo);
+    }
+
+    public void fechar() {
+        System.out.println("Fechando o documento: " + titulo);
+    }
+}
+
+public class DocumentoTexto extends Documento {
+    private String conteudo;
+
+    public DocumentoTexto(String titulo, String conteudo) {
+        super(titulo);
+        this.conteudo = conteudo;
+    }
+
+    public void editar() {
+        System.out.println("Editando o documento de texto: " + titulo);
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+}
+```
+
+
+**C++** 
+```cpp
+class Documento {
+protected:
+    std::string titulo;
+
+public:
+    Documento(std::string titulo) : titulo(titulo) {}
+
+    void abrir() {
+        std::cout << "Abrindo o documento: " << titulo << std::endl;
+    }
+
+    void fechar() {
+        std::cout << "Fechando o documento: " << titulo << std::endl;
+    }
+
+};
+
+class DocumentoTexto : public Documento {
+private:
+    std::string conteudo;
+
+public:
+    DocumentoTexto(std::string titulo, std::string conteudo)
+        : Documento(titulo), conteudo(conteudo) {}
+
+    void editar() {
+        std::cout << "Editando o documento de texto: " << titulo << std::endl;
+    }
+
+    std::string getTitulo() const {
+        return titulo;
+    }
+};
+
+```
+
+</details>
+
+<details>
+<summary> Herança e Hierarquia</summary>
+
+A hierarquia de herança é demonstrada com as classes `Adicao` e `Multiplicacao`. A interface (em Java) e classe (em C++ ) `OperacaoMatematica` define o método `realizarOperacao()`, implementado pela classe `Adicao`. A classe `Multiplicacao` herda de `Adicao` e utiliza a herança para acessar o método `realizarOperacao()` da classe base.
+
+**Java**
+```java
+interface OperacaoMatematica {
+    void realizarOperacao();
+}
+
+class Adicao implements OperacaoMatematica {
+    public void realizarOperacao() {
+        System.out.println("Realizando a operação de adição");
+    }
+
+    void metodoEspecificoAdicao() {
+        System.out.println("Método específico da classe Adicao");
+    }
+}
+
+class Multiplicacao extends Adicao {
+    void chamarOperacaoAdicao() {
+        super.realizarOperacao();  
+    }
+}
+```
+
+**C++** 
+```cpp
+class OperacaoMatematica {
+public:
+    virtual void realizarOperacao() = 0; 
+};
+
+class Adicao : public OperacaoMatematica {
+public:
+    void realizarOperacao() override {
+        std::cout << "Realizando a operação de adição" << std::endl;
+    }
+
+    void metodoEspecificoAdicao() {
+        std::cout << "Método específico da classe Adicao" << std::endl;
+    }
+};
+
+class Multiplicacao : public Adicao {
+public:
+    void chamarOperacaoAdicao() {
+        Adicao::realizarOperacao(); 
+    }
+};
+```
+
+</details>
+
+
+<details>
+<summary> Herança múltipla</summary>
+
+Em Java, a herança múltipla é simulada usando interfaces. A classe `Estudante` herda de `Pessoa` e implementa a interface `Trabalhador`. No C++, a herança múltipla é diretamente utilizada pela classe `Estudante`, que herda tanto de `Pessoa` quanto de `Trabalhador`.
+
+**Java**
+```java
+interface Trabalhador {
+    void realizarTrabalho();
+}
+
+class Estudante extends Pessoa implements Trabalhador {
+    public Estudante(String nome) {
+        super(nome);
+    }
+
+    @Override
+    public void realizarTrabalho() {
+        System.out.println("Realizando trabalho de estudante.");
+    }
+}
+```
+
+**C++** 
+```cpp
+class Trabalhador {
+public:
+    virtual void realizarTrabalho() = 0; 
+};
+
+class Estudante : public Pessoa, public Trabalhador {
+public:
+    Estudante(std::string nome) : Pessoa(nome) {}
+
+    void realizarTrabalho() override {
+        std::cout << "Realizando trabalho de estudante." << std::endl;
+    }
+};
+```
+
+</details>
 
 ##  4. Quando declaramos uma variável em Java, temos, na verdade, um ponteiro. Em C++ é diferente. Discorra sobre esse aspecto.
 
