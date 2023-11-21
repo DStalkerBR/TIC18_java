@@ -6,8 +6,10 @@
 	],
 	"settings": {
 		"java.project.sourcePaths": [
+			"RedeSocial/src",
+			"PO-01/Calculadora/src",
 			"Book/src",
-			"RedeSocial/src"
+			"PO-01/Conversor/src"
 		]
 	}
 }
