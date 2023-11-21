@@ -22,45 +22,54 @@ public class Usuario {
 	}
 	
 	public static void main(String[] args) {
-		Usuario novoUsuario;
 		Scanner entrada = new Scanner(System.in);
-		String nome, email, nacionalidade, postagem;
-		
-		System.out.println("Digite o nome:");
-		nome = entrada.nextLine();
-		
-		System.out.println("Digite o email:");
-		email = entrada.nextLine();
-		
-		System.out.println("Digite a nacionalidade:");
-		nacionalidade = entrada.nextLine();
-		
-		novoUsuario = new Usuario(nome, email, nacionalidade);
-		
-		System.out.println("Crie uma nova postagem:");
-		postagem = entrada.nextLine();
-		novoUsuario.adicionaPostagem(postagem);
-		novoUsuario.alteraPontuacao(postagem.length());
-		
-		System.out.println("Crie uma nova postagem:");
-		postagem = entrada.nextLine();
-		novoUsuario.adicionaPostagem(postagem);
-		novoUsuario.alteraPontuacao(postagem.length());
-		
-		System.out.println("Crie uma nova postagem:");
-		postagem = entrada.nextLine();
-		novoUsuario.adicionaPostagem(postagem);
-		novoUsuario.alteraPontuacao(postagem.length());
-		
-		System.out.println("Dados do usuário: ");
-		System.out.println("Nome: " + novoUsuario.getNome());
-		System.out.println("Email: " + novoUsuario.getEmail());
-		System.out.println("Nacionalidade: " + novoUsuario.getNacionalidade());
-		System.out.println("Quantidade de Postagens: " + novoUsuario.getQuantidadeDePostagens());
-		System.out.println("Pontuação: " + novoUsuario.getPontuacao() );
-		System.out.println("\nPostagens do usuário: ");
-		for (String post : novoUsuario.getPostagens()) {
-			System.out.println(post);
+		char sn = 's';
+		ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+
+		while (sn != 'n') {
+			Usuario novoUsuario;		
+			String nome, email, nacionalidade, postagem;
+			System.out.println("Criando um novo usuário...");		
+			System.out.println("Digite o nome:");
+			nome = entrada.nextLine();
+			
+			System.out.println("Digite o email:");
+			email = entrada.nextLine();
+			
+			System.out.println("Digite a nacionalidade:");
+			nacionalidade = entrada.nextLine();
+			
+			novoUsuario = new Usuario(nome, email, nacionalidade);
+			
+			System.out.println("Crie uma nova postagem:");
+			postagem = entrada.nextLine();
+			novoUsuario.adicionaPostagem(postagem);
+			novoUsuario.alteraPontuacao(postagem.length());
+			
+			System.out.println("Crie uma nova postagem:");
+			postagem = entrada.nextLine();
+			novoUsuario.adicionaPostagem(postagem);
+			novoUsuario.alteraPontuacao(postagem.length());
+			
+			System.out.println("Crie uma nova postagem:");
+			postagem = entrada.nextLine();
+			novoUsuario.adicionaPostagem(postagem);
+			novoUsuario.alteraPontuacao(postagem.length());
+
+			listaUsuarios.add(novoUsuario);
+			System.out.println("Adicionar novo usuário?");
+			sn = entrada.nextLine().charAt(0);			
+		}
+
+		for(Usuario usuario : listaUsuarios) {
+			System.out.println("\nDados do usuário: ");
+			System.out.println("Nome: " + usuario.getNome());
+			System.out.println("Email: " + usuario.getEmail());
+			System.out.println("Nacionalidade: " + usuario.getNacionalidade());
+			System.out.println("Quantidade de Postagens: " + usuario.getQuantidadeDePostagens());
+			System.out.println("Pontuação: " + usuario.getPontuacao() );
+			System.out.println("\nPostagens do usuário: ");
+			usuario.mostrarPostagens();
 		}
 
 		entrada.close();
@@ -92,6 +101,12 @@ public class Usuario {
 
 	public ArrayList<String> getPostagens() {
 		return postagens;
+	}
+
+	public void mostrarPostagens (){
+		for (int i = 0; i < postagens.size(); i++) {
+			System.out.println(postagens.get(i));
+		}
 	}
 
 	public void setPostagens(ArrayList<String> postagens) {
