@@ -1,4 +1,4 @@
-package primitive;
+package exercicios;
 
 public class PrimitiveValue {	
 	

@@ -1,4 +1,4 @@
-package concatenador;
+package exercicios;
 
 import java.util.Scanner;
 
@@ -24,10 +24,4 @@ public class Concatenador {
 		return nomeCompleto;
 	}
 	
-	public static void main(String[] args) {
-		Concatenador concatenador = new Concatenador();
-		concatenador.entrada();
-		concatenador.concatena();
-		System.out.println(concatenador.getNomeCompleto());
-	}
 }

@@ -1,4 +1,4 @@
-package quiz;
+package exercicios;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -7,11 +7,13 @@ public class Pergunta {
 	private String texto;
 	private ArrayList<String> alternativas;
 	private int alternativaCerta;
+	private Scanner entrada;
 	
 	public Pergunta() {
 		this.texto = "";
 		this.alternativas = new ArrayList<String>();
 		this.alternativaCerta = 0;
+		this.entrada = new Scanner(System.in);
 	}
 	
 	public Pergunta(String texto, ArrayList<String> alternativas, int alternativaCerta) {
@@ -19,6 +21,7 @@ public class Pergunta {
 		this.texto = texto;
 		this.alternativas = alternativas;
 		this.alternativaCerta = alternativaCerta;
+		this.entrada = new Scanner(System.in);
 	}
 	
 	public String getTexto() {
@@ -47,12 +50,11 @@ public class Pergunta {
 	
 	private void mostrarAlternativas() {
 		for (int i = 0; i < alternativas.size(); i++) {
-			System.out.println(String.valueOf(i + 1) + " " + alternativas.get(i));
+			System.out.println(String.valueOf(i + 1) + ". " + alternativas.get(i));
 		}
 	}
 
 	public void criarPergunta() {
-		Scanner entrada = new Scanner(System.in);
 		System.out.println("Texto da pergunta: ");
 		this.texto = entrada.nextLine();
 		System.out.println("Adicione a 1ª alternativa: ");
@@ -66,40 +68,13 @@ public class Pergunta {
 		this.mostrarAlternativas();
 		System.out.println("Alternativa certa (Numero): ");
 		this.alternativaCerta = entrada.nextInt();
-		entrada.close();
 	}
 	
 	public boolean executarPergunta() {
-		Scanner entrada = new Scanner(System.in);
 		System.out.println(this.texto);
 		this.mostrarAlternativas();
+		System.out.println("Qual a alternativa correta? ");
 		int alternativa = entrada.nextInt();
-		entrada.close();
-		if(alternativa == this.alternativaCerta) {
-			return true;
-		}
-		return false;
+		return alternativa == this.alternativaCerta;
 	}
-	
-	public static void main(String[] args) {
-		ArrayList<Pergunta> showDoMilhao = new ArrayList<Pergunta>();
-		int quantAltCerta = 0;
-		Pergunta pergunta1 = new Pergunta();
-		pergunta1.criarPergunta();
-		Pergunta pergunta2 = new Pergunta();
-		pergunta2.criarPergunta();
-		Pergunta pergunta3 = new Pergunta();
-		pergunta3.criarPergunta();
-		showDoMilhao.add(pergunta1);
-		showDoMilhao.add(pergunta2);
-		showDoMilhao.add(pergunta3);
-		for(Pergunta pergunta : showDoMilhao) {
-			if (pergunta.executarPergunta()) {
-				quantAltCerta += 1;
-			}
-		}
-		System.out.println( quantAltCerta + " corretas de " + showDoMilhao.size() + " questões");
-		
-	}
-
 }
