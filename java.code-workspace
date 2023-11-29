@@ -8,11 +8,12 @@
 		"java.project.sourcePaths": [
 			"RedeSocial/src",
 			"PrimitiveValues/src",
+			"PO-02/JogoAdivinhacao/src",
 			"PO-02/ConversorMoeda/src",
 			"PO-01/Conversor/src",
 			"PO-01/Calculadora/src",
 			"Book/src",
-			"PO-02/JogoAdivinhacao/src"
+			"PO-02/ManipulaArray/src"
 		]
 	}
 }
