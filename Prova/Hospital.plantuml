@@ -1,0 +1,159 @@
+@startuml Hospital
+
+note as hosp
+Diagama de Classes do Hospital
+endnote 
+
+class Procedimento {
+    - nome: String
+    - descricao: String
+    - data: Date
+    - hora: Time
+    - tipo: String
+    - urgencia: Boolean
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+    + registrarMedicamento()
+    + registrarInsumo()
+    + registrarProcedimento()
+    + registrarMedico()
+    + registrarEnfermeiro()
+    + verificarUrgencia()
+}
+
+
+class Medicamento {
+    - nome: String
+    - descricao: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+class Insumo {
+    - nome: String
+    - descricao: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+abstract Agente {
+    - tipo : String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+class Pessoa {
+    - nome: String
+    - cpf: String
+    - dataNascimento: Date
+    - email: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+    + listar()
+
+}
+
+class Medico {
+    - crm: String
+    - especialidade: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+class Enfermeiro {
+    - coren: String
+    - especialidade: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+class Triagem {
+    - data: Date
+    - hora: Time
+    - tipo: String
+    - descricao: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+class Atendimento {
+    - data: Date
+    - hora: Time
+    - tipo: String
+    - urgencia: Boolean
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+class Plantao {
+    - data: Date
+    - hora: Time
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+class Paciente {
+    - telefone: String
+    - endereco: String
+    - convenio: String
+    - tipoSanguineo: String
+    - alergias: String
+    - observacoes: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+    + listar()
+} 
+
+class Equipe {
+    - nome: String
+    - descricao: String
+    + cadastrar()
+    + atualizar()
+    + excluir()
+    + consultar()
+}
+
+
+Pessoa <|-- Paciente
+Pessoa <|-- Agente
+Agente <|-- Medico
+Agente <|-- Enfermeiro 
+Paciente "1" o-- "0..*" Atendimento
+Atendimento "1" o-- "0..*" Procedimento
+Medico "1" o-- "0..*" Atendimento
+Triagem "1" o-- "1..*" Paciente
+Triagem "1" o-- "1" Enfermeiro
+Triagem "1" o-- "1..*" Atendimento
+Plantao "1" o-- "1..*" Medico
+Medico "1" o-- "1..*" Plantao
+Procedimento "1" o-- "0..*" Medicamento
+Procedimento "1" o-- "0..*" Insumo 
+Procedimento "1" o-- "0..*" Procedimento
+Procedimento "0..*" o-- "1" Equipe
+Equipe "1" o-- "0..*" Medico
+Equipe "1" o-- "0..*" Enfermeiro
+Procedimento "1" o-- "1..*" Paciente
+
+@enduml
